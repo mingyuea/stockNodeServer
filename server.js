@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const assert = require('assert');
 const fetch = require('node-fetch');
+const helmet = require('helmet');
 
 const dbUrl = process.env.MONGODB_URI || 'mongodb://mingyue:Secure1@ds018498.mlab.com:18498/stockdb';
 const dbName = 'stockdb';
@@ -17,6 +18,8 @@ MongoClient.connect(dbUrl, (err, client) => {
 
 	db = client.db(dbName);
 });
+
+app.use(helmet());
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
