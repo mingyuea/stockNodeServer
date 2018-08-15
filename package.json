@@ -1,6 +1,10 @@
 {
   "name": "stocksNodeServer",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.11.3"
+  },
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
